@@ -14,14 +14,17 @@ int main()
 	edge e1;
 	do
 	{
-		i++;
 		cout << "Enter edges of your graph:\n source and then destenation\n";
 		cin >> e1.src >> e1.dest;
+		if (i < e1.src)
+			i = e1.src;
+		if (i < e1.dest)
+			i = e1.dest;
 		e.push_back(e1);
 		cout << "do you want to continue? Y/N\n";
 		cin >> ch;
 	} while (tolower(ch)!='n');
-	graph g(e, i);
+	graph g(e, i+1);
 	g.printGraph();
 	int a, b;
 	cout << "Enter 2 node to check is there any edge between them!\n";
